@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'sqlite3', '~> 1.3.6'
 gem 'rails', '~> 5.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -30,22 +29,28 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'sqlite3', '~> 1.3.6'
 # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
 # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 
 group :test do
 # Adds support for Capybara system testing and selenium driver
-gem 'capybara', '>= 2.15'
-gem 'selenium-webdriver'
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
 # Easy installation and use of chromedriver to run system tests with Chrome
-gem 'chromedriver-helper'
+  gem 'chromedriver-helper'
+end
+
+group :production do
+ gem 'rails_12factor'
+ gem "pg", :require => "pg"
 end
 
 
